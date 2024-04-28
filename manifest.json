@@ -3,7 +3,7 @@
     "background_color": "#f69435",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://jhjhajh.github.io/currencyConverter/",
+    "start_url":"https://github.com/jhjhajh/currencyConverter/service-worker.js",
     "name": "Currency Converter",
     "short_name": "Currency Converter",
     "description": "cool app",
