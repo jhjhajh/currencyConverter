@@ -75,7 +75,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         
-        <!-- JavaScript to Handle Currency Conversion -->
         <!-- JavaScript to Handle Currency Conversion and Save/Load Conversion Rate -->
 <script>
  
@@ -116,8 +115,7 @@
     }
 
     // Add event listeners for conversion and saving the conversion rate
-    conversionRateInput.addEventListener("input", convertAToB); // This already existed
-    // conversionRateInput.addEventListener("input", saveConversionRate); // New listener for saving the rate
+    currencyAInput.addEventListener("input", convertAToB); 
     currencyBInput.addEventListener("input", convertBToA);
 
     // Load the conversion rate when the page loads
