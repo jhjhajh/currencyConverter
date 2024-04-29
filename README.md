@@ -11,7 +11,7 @@ Currency Converter is a Progressive Web App (PWA) designed to help users convert
 - [License](#license)
 
 ## How to Use
-1. To use the app, go to https://jhjhajh.github.io/currencyConverter/ [#https://jhjhajh.github.io/currencyConverter/].
+1. To use the app, go to [https://jhjhajh.github.io/currencyConverter/](https://jhjhajh.github.io/currencyConverter).
 2. Add this website to homepage and you can start using this app offline!
 3. To use the app, simply input the conversion rate, as well as your home country or foreign country's currency.
 4. The app will cache the conversion rate until you update it.
