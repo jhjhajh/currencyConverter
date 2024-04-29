@@ -136,6 +136,20 @@
                 console.error("Service Worker registration failed:", error);
             });
     }
+    self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) {
+        return cachedResponse; // Serve from cache
+      }
+      return fetch(event.request).catch(error => {
+        console.error("Fetch failed:", error); // Log the error
+        // Return fallback content, if any
+      });
+    })
+  );
+});
+
 </script>
 
   <!-- Ensure this script block is just before the closing </body> tag -->
