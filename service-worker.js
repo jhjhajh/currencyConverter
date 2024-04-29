@@ -19,13 +19,29 @@ self.addEventListener("install", (event) => {
 
   
   // Fetch event: Serve from cache or network
-  self.addEventListener("fetch", (event) => {
-    event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-      })
-    );
-  });
+//  self.addEventListener("fetch", (event) => {
+//    event.respondWith(
+//      caches.match(event.request).then((response) => {
+//        return response || fetch(event.request);
+//      })
+//    );
+//  });
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      if (response) {
+        return response; // Serve from cache
+      }
+
+      // Fetch from the network with error handling
+      return fetch(event.request).catch((error) => {
+        console.error("Fetch failed:", error);
+        // You can return a fallback here, like a cached offline page
+      });
+    })
+  );
+});
+
   
   // Activate event: Cleanup old caches
   self.addEventListener("activate", (event) => {
