@@ -3,7 +3,7 @@
     "background_color": "#0096FF",
     "display": "standalone",
     "scope": "/",
-    "start_url":"/currencyConverter/service-worker.js",
+    "start_url":"/currencyConverter/",
     "name": "Currency Converter",
     "short_name": "Currency Converter",
     "description": "cool app",
