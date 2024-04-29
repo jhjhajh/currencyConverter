@@ -5,7 +5,7 @@ self.addEventListener("install", (event) => {
       .open("currency-converter-v1")
       .then((cache) => {
         return cache.addAll([
-          "/currencyConverter",
+          "/currencyConverter/",
           "/currencyConverter/index.html",
           "/currencyConverter/css/styles.css",
           "/currencyConverter/assets/favicon.ico",
