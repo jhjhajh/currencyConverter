@@ -5,10 +5,10 @@ self.addEventListener("install", (event) => {
       .open("currency-converter-v1")
       .then((cache) => {
         return cache.addAll([
-          "/",
-          "/index.html",
-          "/css/styles.css",
-          "assets/favicon.ico",
+          "/currencyConverter",
+          "/currencyConverter/index.html",
+          "/currencyConverter/css/styles.css",
+          "/currencyConverter/assets/favicon.ico",
         ]);
       })
       .catch((error) => {
