@@ -129,7 +129,7 @@
 <script>
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker
-            .register("https://github.com/jhjhajh/currencyConverter/service-worker.js", {scope: '/currencyConverter/'})
+            .register("/currencyConverter/service-worker.js", {scope: '/currencyConverter/'})
             .then(() => {
                 console.log("Service Worker registered");
             })
