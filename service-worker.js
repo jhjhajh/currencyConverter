@@ -2,13 +2,14 @@
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
-      .open("currency-converter-v1")
+      .open("currency-converter-v2")
       .then((cache) => {
         return cache.addAll([
           "/currencyConverter/",
           "/currencyConverter/index.html",
-          "/currencyConverter/css/styles.css",
+          "/currencyConverter/asssets/application.bundle.css",
           "/currencyConverter/assets/favicon.ico",
+          "/currencyConverter/index.bundle.js"
         ]);
       })
       .catch((error) => {
@@ -45,7 +46,7 @@ self.addEventListener("fetch", (event) => {
   
   // Activate event: Cleanup old caches
   self.addEventListener("activate", (event) => {
-    const cacheWhitelist = ["currency-converter-v1"];
+    const cacheWhitelist = ["currency-converter-v2"];
     event.waitUntil(
       caches.keys().then((cacheNames) => {
         return Promise.all(

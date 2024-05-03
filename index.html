@@ -1,181 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Currency Converter</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="manifest" href="/currencyConverter/manifest.json">
-        <link rel="canonical" href="https://jhjhajh.github.io/currencyConverter/" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="/assets/application.bundle.css">
+    <script defer src="https://kit.fontawesome.com/9d6df6577f.js" crossorigin="anonymous"></script>
+    <script defer src="/assets/application.bundle.js"></script>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Frankfurter Exchange rates and currency data API</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Frankfurter Exchange rates and currency data API" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Frankfurter is a free and open-source exchange rates and conversion API for currency data published by the European Central Bank." />
+<meta property="og:description" content="Frankfurter is a free and open-source exchange rates and conversion API for currency data published by the European Central Bank." />
+<link rel="canonical" href="https://www.frankfurter.app/" />
+<meta property="og:url" content="https://www.frankfurter.app/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Frankfurter Exchange rates and currency data API" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Frankfurter is a free and open-source exchange rates and conversion API for currency data published by the European Central Bank.","headline":"Frankfurter Exchange rates and currency data API","url":"https://www.frankfurter.app/"}</script>
+<!-- End Jekyll SEO tag -->
 
-    </head>
-    <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-light bg-grey static-top">
-            <div class="container d-flex"> <!-- Using 'd-flex' to ensure a single row -->
-                <a class="navbar-brand" href="#!">Currency Converter</a>
-
-                <!-- Right-aligned non-clickable icon -->
-                <span class="ms-auto"> <!-- 'ms-auto' to push content to the right -->
-                    <img src="assets/favicon.ico" alt="Favicon Icon" style="height: 24px;" /> <!-- Non-clickable icon -->
-                </span>
-            </div>
-        </nav>
-        
-        <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <h3 style="margin-top: 0px; margin-bottom: 60px;">Currency Converter</h3> <!-- Adding bottom margin -->
-                        <p>Simple calculator to convert between your home country's currency and Foreign currency without typing on your calculator!</p>
-                        <p>Enter your conversion rate: 1 dollar in home country currency : ? in foreign currency</p>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-5" href="/">
+        <strong>Currency Converter</strong>
+      </a>
+    </div>
     
-    
-                        <!-- Input Box for Currency B -->
-                        <div class="form-group mb-3">
-                            <label for="currencyB">Foreign Currency</label>
-                            <input type="number" step="0.01" class="form-control" id="currencyB" placeholder="Enter amount in foreign currency" />
-                        </div>
-                        
-                        <!-- Conversion Rate Input -->
-                        <div class="form-group mb-3">
-                            <label for="conversionRate">Conversion Rate</label>
-                            <input type="number" step="0.01" class="form-control" id="conversionRate" placeholder="Enter your conversion rate" />
-                        </div>
-                        
-                        <!-- Input Box for Currency A -->
-                        <div class="form-group mb-3">
-                            <label for="currencyA">Home Country Currency</label>
-                            <input type="number" step="0.01" class="form-control" id="currencyA" placeholder="Enter amount in home country currency" />
-                        </div>
-                        
-                    </div>
-        
-        <!-- Footer-->
-        <footer class="footer bg-grey" style="margin-bottom: 0;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Simple Currency Converter 2024. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-left text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="https://github.com/jhjhajh/currencyConverter"><i class="bi-github fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <!-- JavaScript to Handle Currency Conversion and Save/Load Conversion Rate -->
-<script>
- 
-    // Get input elements
-    const conversionRateInput = document.getElementById("conversionRate");
-    const currencyAInput = document.getElementById("currencyA");
-    const currencyBInput = document.getElementById("currencyB");
+  </div>
+</nav>
+<!-- features -->
 
-    // Function to convert Currency A to Currency B
-    function convertAToB() {
-        const rate = parseFloat(conversionRateInput.value);
-        const amountA = parseFloat(currencyAInput.value);
-        if (!isNaN(rate) && !isNaN(amountA)) {
-            currencyBInput.value = (amountA * rate).toFixed(2);
-        }
-    }
+<section class="section content has-text-centered">
+  <div class="container">
+    <div class="example">
+      <div class="columns has-text-left is-vcentered">
+        <div class="column is-5">
+          <p>
+            <span class="fromText has-text-grey"></span>
+            <br />
+            <span class="toText title"></span>
+          </p>
+          <div class="field is-grouped">
+            <p class="control is-expanded">
+              <input class="from input" type="text" />
+            </p>
+            <p class="control">
+              <span class="select is-link">
+                <select class="from" name="from">
+                  <option value="SGD">SGD - Singapore Dollar</option>
+                  <option value="KRW">KRW - Korean Won</option>
+                </select>
+              </span>
+            </p>
+          </div>
+          <div class="to field is-grouped">
+            <p class="control is-expanded">
+              <input class="to input" type="text" />
+            </p>
+            <p class="control">
+              <span class="select is-link">
+                <select class="to" name="to">
+                  <option value="SGD">SGD - Singapore Dollar</option>
+                  <option value="KRW">KRW - Korean Won</option>
+                </select>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="column is-6 is-offset-1">
+          <canvas class="chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script async src="/assets/index.bundle.js"></script>
 
-    // Function to convert Currency B to Currency A
-    function convertBToA() {
-        const rate = parseFloat(conversionRateInput.value);
-        const amountB = parseFloat(currencyBInput.value);
-        if (!isNaN(rate) && !isNaN(amountB)) {
-            currencyAInput.value = (amountB / rate).toFixed(2);
-        }
-    }
+    <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      This website and API do not track you. The content of this website is licensed <a href="//creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+    <!-- Script to cache "from" and "to" currency selections -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fromSelect = document.querySelector('select[name="from"]');
+            const toSelect = document.querySelector('select[name="to"]');
 
-    // Save the conversion rate to localStorage
-    function saveConversionRate() {
-        localStorage.setItem("conversionRate", conversionRateInput.value);
-    }
+            // Load cached values
+            const storedFromCurrency = localStorage.getItem("fromCurrency");
+            const storedToCurrency = localStorage.getItem("toCurrency");
 
-    // Load the saved conversion rate from localStorage
-    function loadConversionRate() {
-        const savedRate = localStorage.getItem("conversionRate");
-        if (savedRate) {
-            conversionRateInput.value = savedRate;
-        }
-    }
+            if (storedFromCurrency) {
+                fromSelect.value = storedFromCurrency;
+            }
 
-    // Add event listeners for conversion and saving the conversion rate
-    currencyAInput.addEventListener("input", convertAToB); 
-    currencyBInput.addEventListener("input", convertBToA);
+            if (storedToCurrency) {
+                toSelect.value = storedToCurrency;
+            }
 
-    // Load the conversion rate when the page loads
-    document.addEventListener("DOMContentLoaded", loadConversionRate);
-    // Set a test value in localStorage
-   
-</script>
-<!-- Register the Service Worker -->
-<script>
-    if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-            .register("/currencyConverter/service-worker.js", {scope: '/currencyConverter/'})
-            .then(() => {
-                console.log("Service Worker registered");
-            })
-            .catch((error) => {
-                console.error("Service Worker registration failed:", error);
+            // Save selections to localStorage when they change
+            fromSelect.addEventListener("change", function () {
+                localStorage.setItem("fromCurrency", fromSelect.value);
             });
-    }
-    self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
-      if (cachedResponse) {
-        return cachedResponse; // Serve from cache
-      }
-      return fetch(event.request).catch(error => {
-        console.error("Fetch failed:", error); // Log the error
-        // Return fallback content, if any
-      });
-    })
-  );
-});
 
-</script>
-
-  <!-- Ensure this script block is just before the closing </body> tag -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Get the input element
-        const conversionRateInput = document.getElementById("conversionRate");
-    
-        // Load the conversion rate from localStorage
-        const savedRate = localStorage.getItem("conversionRate");
-        if (savedRate) {
-            conversionRateInput.value = savedRate; // Set the value
-            console.log("Loaded conversion rate:", savedRate);
-        }
-    
-        // Save the conversion rate when the input changes
-        conversionRateInput.addEventListener("input", () => {
-            console.log("Saving to localStorage");
-            localStorage.setItem("conversionRate", conversionRateInput.value);
+            toSelect.addEventListener("change", function () {
+                localStorage.setItem("toCurrency", toSelect.value);
+            });
         });
-    });
     </script>
-    
-  
-    </body>
+                <!-- Register the Service Worker -->
+                <script>
+                
+                  if ("serviceWorker" in navigator) {
+                      navigator.serviceWorker
+                          .register("https://github.com/jhjhajh/currencyConverter/service-worker.js")
+                          .then(() => {
+                              console.log("Service Worker registered");
+                          })
+                          .catch((error) => {
+                              console.error("Service Worker registration failed:", error);
+                          });
+                  }
+              </script>
+
+  </body>
 </html>
