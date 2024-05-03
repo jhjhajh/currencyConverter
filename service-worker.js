@@ -9,7 +9,7 @@ self.addEventListener("install", (event) => {
           "/currencyConverter/index.html",
           "/currencyConverter/asssets/application.bundle.css",
           "/currencyConverter/assets/favicon.ico",
-          "/currencyConverter/index.bundle.js"
+          "/currencyConverter/assets/index.bundle.js"
         ]);
       })
       .catch((error) => {
@@ -18,15 +18,6 @@ self.addEventListener("install", (event) => {
   );
 });
 
-  
-  // Fetch event: Serve from cache or network
-//  self.addEventListener("fetch", (event) => {
-//    event.respondWith(
-//      caches.match(event.request).then((response) => {
-//        return response || fetch(event.request);
-//      })
-//    );
-//  });
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
