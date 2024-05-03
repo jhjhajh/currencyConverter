@@ -2,7 +2,8 @@
 
 Currency Converter is a Progressive Web App (PWA) designed to help users convert currency values both online and offline. This app works even when there's no internet connection, thanks to service workers and caching mechanisms.
 
-Version 2 is essentially scraped from [Frankfurter App](https://www.frankfurter.app/) and uses the Frankfurter App API to pull the latest currency exchange rates for the day.
+Version 2 is inspired by [Frankfurter App](https://www.frankfurter.app/) and uses the Frankfurter App API to pull the latest currency exchange rates for the day.
+
 
 ## Table of Contents
 - [How to Use](#how-to-use)
