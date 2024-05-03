@@ -20603,8 +20603,8 @@
             ,
             a.onchange = m,
             o.onchange = m,
-            a.value = "EUR",
-            o.value = "USD",
+            a.value = "SGD",
+            o.value = "KRW",
             t.value = 1,
             fetch("https://api.frankfurter.app/latest").then(e=>e.json()).then(e=>{
                 d.a.base = e.base,

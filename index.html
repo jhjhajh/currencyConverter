@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="/assets/application.bundle.css">
     <script defer src="https://kit.fontawesome.com/9d6df6577f.js" crossorigin="anonymous"></script>
     <script defer src="/assets/application.bundle.js"></script>
@@ -53,7 +53,10 @@
             </p>
             <p class="control">
               <span class="select is-link">
-                <select class="from" name="from"></select>
+                <select class="from" name="from">
+                  <option value="SGD">SGD - Singapore Dollar</option>
+                  <option value="KRW">KRW - Korean Won</option>
+                </select>
               </span>
             </p>
           </div>
@@ -63,7 +66,10 @@
             </p>
             <p class="control">
               <span class="select is-link">
-                <select class="to" name="to"></select>
+                <select class="to" name="to">
+                  <option value="SGD">SGD - Singapore Dollar</option>
+                  <option value="KRW">KRW - Korean Won</option>
+                </select>
               </span>
             </p>
           </div>
@@ -84,6 +90,48 @@
     </p>
   </div>
 </footer>
+    <!-- Script to cache "from" and "to" currency selections -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fromSelect = document.querySelector('select[name="from"]');
+            const toSelect = document.querySelector('select[name="to"]');
+
+            // Load cached values
+            const storedFromCurrency = localStorage.getItem("fromCurrency");
+            const storedToCurrency = localStorage.getItem("toCurrency");
+
+            if (storedFromCurrency) {
+                fromSelect.value = storedFromCurrency;
+            }
+
+            if (storedToCurrency) {
+                toSelect.value = storedToCurrency;
+            }
+
+            // Save selections to localStorage when they change
+            fromSelect.addEventListener("change", function () {
+                localStorage.setItem("fromCurrency", fromSelect.value);
+            });
+
+            toSelect.addEventListener("change", function () {
+                localStorage.setItem("toCurrency", toSelect.value);
+            });
+        });
+    </script>
+                <!-- Register the Service Worker -->
+                <script>
+                
+                  if ("serviceWorker" in navigator) {
+                      navigator.serviceWorker
+                          .register("https://github.com/jhjhajh/currencyConverter/service-worker.js")
+                          .then(() => {
+                              console.log("Service Worker registered");
+                          })
+                          .catch((error) => {
+                              console.error("Service Worker registration failed:", error);
+                          });
+                  }
+              </script>
 
   </body>
 </html>
